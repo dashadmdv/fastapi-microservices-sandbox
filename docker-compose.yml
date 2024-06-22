@@ -29,7 +29,7 @@ services:
     ports:
       - 8002:8000
     environment:
-      - DATABASE_URI=postgresql://cast_db_username:cast_db_password@cast_db/cast_db_dev
+      - DATABASE_URL=postgresql://cast_db_username:cast_db_password@cast_db/cast_db_dev
 
   cast_db:
     image: postgres:12.1-alpine
