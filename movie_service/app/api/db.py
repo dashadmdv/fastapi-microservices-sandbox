@@ -1,13 +1,16 @@
 # ~/movie-service/app/api/db.py
-from dotenv import load_dotenv
 import os
 
+from dotenv import load_dotenv
 from sqlalchemy import Column, Integer, MetaData, String, Table, create_engine, ARRAY
 
 from databases import Database
 
-load_dotenv()
-DATABASE_URL = os.getenv("DATABASE_URL")
+DATABASE_URL = os.environ.get("DATABASE_URL")
+
+if DATABASE_URL is None:
+    load_dotenv()
+    DATABASE_URL = os.getenv("DATABASE_URL")
 
 engine = create_engine(DATABASE_URL)
 metadata = MetaData()
