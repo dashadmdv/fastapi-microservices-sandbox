@@ -16,7 +16,7 @@ async def get_all_movies():
 
 
 async def get_movie(id):
-    query = movies.select(movies.c.id == id)
+    query = movies.select().where(movies.c.id == id)
     return await database.fetch_one(query=query)
 
 

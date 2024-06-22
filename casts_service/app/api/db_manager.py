@@ -11,5 +11,5 @@ async def add_cast(payload: CastIn):
 
 
 async def get_cast(id):
-    query = casts.select(casts.c.id == id)
+    query = casts.select().where(casts.c.id == id)
     return await database.fetch_one(query=query)
